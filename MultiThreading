@@ -1,0 +1,41 @@
+package javalab;
+import java.util.*;
+class RandomThread extends Thread{
+	
+	public static int num;
+
+	public void run() {
+		while(true) {
+			try {
+			Random rand = new Random();
+			num = rand.nextInt(100);
+			sleep(1000);
+			
+			}catch(InterruptedException e) {}
+			if(num%2==0) {
+				EvenThread et = new EvenThread();
+				et.start();			
+			}
+			else {
+				OddThread ot = new OddThread();
+				ot.start();
+			}
+		}
+	}		
+}
+class EvenThread extends Thread{
+	public void run() {
+		System.out.println("Even :"+RandomThread.num*RandomThread.num);
+	}
+}
+class OddThread extends Thread{
+	public void run() {
+		System.out.println("Odd :"+RandomThread.num*RandomThread.num*RandomThread.num);
+	}
+}
+class MultiThreading{
+	public static void main(String args[]) {
+		RandomThread rt = new RandomThread();
+		rt.start();
+	}
+}
