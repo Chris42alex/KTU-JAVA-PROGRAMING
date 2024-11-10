@@ -1,0 +1,34 @@
+package javalab;
+import java.util.Scanner;
+class Transpose{
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of rows of the matrix");
+		int r = sc.nextInt();
+		System.out.println("Enter the number of columns of the matrix");
+		int c = sc.nextInt();
+		int A[][]= new int[r][c];
+		System.out.println("Enter the array elements");
+		for(int i=0;i<r;i++) {
+			for(int j=0; j<c; j++) {
+				A[i][j]=sc.nextInt();
+			}
+			
+		}
+		System.out.println("Orginal Matrix");
+		for(int i=0;i<r;i++) {
+			System.out.println("\n");
+			for(int j=0; j<c; j++) {
+				System.out.print("\t"+A[i][j]);
+			}
+		}
+		System.out.println();
+		System.out.println("Transpose of the Matrix");
+		for(int i=0;i<c;i++) {
+			System.out.println("\n");
+			for(int j=0; j<r; j++) {
+				System.out.print("\t"+A[j][i]);
+			}
+		}
+	}
+}
